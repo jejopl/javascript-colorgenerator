@@ -25,9 +25,12 @@
 
         }
         .margin1 {
-            margin-top: 30px;
+            margin: auto;
+            margin-top: 30px !important;
             font-size: 25px;
             opacity: 0.25;
+            cursor: pointer;
+            width:40%;
         }
         .margin2 {
             margin-top: 80px;
@@ -36,16 +39,25 @@
         .bottom {
             margin-top: 50px;
         }
+        input[type="text"]{
+            background: transparent;
+            border: none;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
         
     </style>
 </head>
 <body>
     <div class="main">
-        <div id="1" class="sub"><p id="1-" class="margin1">LOCK</p><p id="1--" class="margin2">PRESS SPACE</p><p id="1---" class="bottom">#222222</p></div>
-        <div id="2" class="sub"><p id="2-" class="margin1">LOCK</p><p id="2--" class="margin2">PRESS SPACE</p><p id="2---" class="bottom">#222222</p></div>
-        <div id="3" class="sub"><p id="3-" class="margin1">LOCK</p><p id="3--" class="margin2">PRESS SPACE</p><p id="3---" class="bottom">#222222</p></div>
-        <div id="4" class="sub"><p id="4-" class="margin1">LOCK</p><p id="4--" class="margin2">PRESS SPACE</p><p id="4---" class="bottom">#222222</p></div>
-        <div id="5" class="sub"><p id="5-" class="margin1">LOCK</p><p id="5--" class="margin2">PRESS SPACE</p><p id="5---" class="bottom">#222222</p></div>
+        <div id="1" class="sub"><p id="1-" class="margin1">LOCK</p><p id="1--" class="margin2">PRESS SPACE</p><p id="1---" class="bottom"><p><input class="colors" type="text" id="hex1" readonly="readonly"/></p><p><input class="colors" type="text" id="rgb1" readonly="readonly"/></p></p></div>
+        <div id="2" class="sub"><p id="2-" class="margin1">LOCK</p><p id="2--" class="margin2">PRESS SPACE</p><p id="2---" class="bottom"><p><input class="colors" type="text" id="hex2" readonly="readonly"/></p><p><input class="colors" type="text" id="rgb2" readonly="readonly"/></p></p></div>
+        <div id="3" class="sub"><p id="3-" class="margin1">LOCK</p><p id="3--" class="margin2">PRESS SPACE</p><p id="3---" class="bottom"><p><input class="colors" type="text" id="hex3" readonly="readonly"/></p><p><input class="colors" type="text" id="rgb3" readonly="readonly"/></p></p></div>
+        <div id="4" class="sub"><p id="4-" class="margin1">LOCK</p><p id="4--" class="margin2">PRESS SPACE</p><p id="4---" class="bottom"><p><input class="colors" type="text" id="hex4" readonly="readonly"/></p><p><input class="colors" type="text" id="rgb4" readonly="readonly"/></p></p></div>
+        <div id="5" class="sub"><p id="5-" class="margin1">LOCK</p><p id="5--" class="margin2">PRESS SPACE</p><p id="5---" class="bottom"><p><input class="colors" type="text" id="hex5" readonly="readonly"/></p><p><input class="colors" type="text" id="rgb5" readonly="readonly"/></p></p></div>
     </div>
 </body>
 </html>
