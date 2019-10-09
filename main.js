@@ -12,7 +12,7 @@ function getId(id){
 }
 
 function rgbToHex(rgb) { 
-    var hex = Number(rgb).toString(16);
+    let hex = Number(rgb).toString(16);
     if (hex.length < 2) {
          hex = "0" + hex;
     }
@@ -20,18 +20,18 @@ function rgbToHex(rgb) {
 };
 
 function fullColorHex(r,g,b) {   
-    var red = rgbToHex(r);
-    var green = rgbToHex(g);
-    var blue = rgbToHex(b);
+    let red = rgbToHex(r);
+    let green = rgbToHex(g);
+    let blue = rgbToHex(b);
     return ('#' + red+green+blue).toUpperCase();
 };
 
 window.onload = () => {
-    const one = {id: getId("1"), lock: getId("1-"), color: getId("1---"), hex: getId("hex1"), rgb: getId("rgb1"), save: false};
-    const two = {id: getId("2"), lock: getId("2-"), color: getId("2---"), hex: getId("hex2"), rgb: getId("rgb2"), save: false};
-    const three = {id: getId("3"), lock: getId("3-"), color: getId("3---"), hex: getId("hex3"), rgb: getId("rgb3"), save: false};
-    const four = {id: getId("4"), lock: getId("4-"), color: getId("4---"), hex: getId("hex4"), rgb: getId("rgb4"), save: false};
-    const five = {id: getId("5"), lock: getId("5-"), color: getId("5---"), hex: getId("hex5"), rgb: getId("rgb5"), save: false};
+    const one = {id: getId("container1"), move: getId("move1"), lock: getId("lock1"), button: getId("button1"), hex: getId("hex1"), rgb: getId("rgb1"), save: false, clicked:false};
+    const two = {id: getId("container2"), move: getId("move2"), lock: getId("lock2"), button: getId("button2"), hex: getId("hex2"), rgb: getId("rgb2"), save: false, clicked:false};
+    const three = {id: getId("container3"), move: getId("move3"), lock: getId("lock3"), button: getId("button3"), hex: getId("hex3"), rgb: getId("rgb3"), save: false, clicked:false};
+    const four = {id: getId("container4"), move: getId("move4"), lock: getId("lock4"), button: getId("button4"), hex: getId("hex4"), rgb: getId("rgb4"), save: false, clicked:false};
+    const five = {id: getId("container5"), move: getId("move5"), lock: getId("lock5"), button: getId("button5"), hex: getId("hex5"), rgb: getId("rgb5"), save: false, clicked:false};
 
     const allColumns = [one, two, three, four, five];
 
@@ -53,7 +53,7 @@ window.onload = () => {
     });
 
     allColumns.forEach(item => {
-        item.lock.addEventListener('mousedown', event => {
+        item.lock.addEventListener('mousedown', e => {
             if(item.save){
                 item.save = false;
                 item.lock.innerHTML = 'LOCK';
@@ -65,7 +65,29 @@ window.onload = () => {
             }
         });
 
-        item.rgb.addEventListener('mousedown', event => {
+        item.id.addEventListener('mousedown', e => {
+            item.clicked = true;
+
+            item.id.style.width="25%";
+        });
+
+        
+        item.id.addEventListener('mousemove', e => {
+            let position = e.clientX - (item.id.clientWidth / 2);
+            if(item.clicked) {
+                item.id.style.position="absolute";
+                item.id.style.left=`${position}px`;
+            }
+
+        });
+
+        item.id.addEventListener('mouseup', e => {
+            item.clicked = false;
+            item.id.style.position='unset';
+            item.id.style.width="";
+        });
+
+        item.rgb.addEventListener('mousedown', e => {
             item.rgb.className += " copied";
             let temp = item.rgb.value; 
             item.rgb.focus();
@@ -76,10 +98,9 @@ window.onload = () => {
                 item.rgb.className = 'colors';
                 item.rgb.value = temp;
             },500);
-        
         });
 
-        item.hex.addEventListener('mousedown', event => {
+        item.hex.addEventListener('mousedown', e => {
             item.hex.className += " copied";
             let temp = item.hex.value; 
             item.hex.focus();
@@ -90,7 +111,6 @@ window.onload = () => {
                 item.hex.className = 'colors';
                 item.hex.value = temp;
             },500);
-        
         });
     });
 
