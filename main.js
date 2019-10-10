@@ -35,6 +35,9 @@ window.onload = () => {
 
     const allColumns = [one, two, three, four, five];
 
+    let elementWidth = (window.innerWidth / 5);
+    console.log(elementWidth)
+
     window.addEventListener('keydown', event => {
         if(event.keyCode === 32){
             allColumns.forEach(item => {
@@ -45,14 +48,20 @@ window.onload = () => {
                 let r = currentColor[0];
                 let g = currentColor[1];
                 let b = currentColor[2];
-                item.id.style = `background: rgb(${r}, ${g}, ${b})`;
+                item.id.style.background = `rgb(${r}, ${g}, ${b})`;
                 item.hex.value = fullColorHex(r,g,b);
                 item.rgb.value = `rgb(${r}, ${g}, ${b})`;
             });
         }
     });
 
+    for(i=0; i<5; i++) {
+        let leftMargin = elementWidth * i;
+        allColumns[i].id.style.left=`${leftMargin}px`;
+    }
+
     allColumns.forEach(item => {
+
         item.lock.addEventListener('mousedown', e => {
             if(item.save){
                 item.save = false;
@@ -67,15 +76,13 @@ window.onload = () => {
 
         item.id.addEventListener('mousedown', e => {
             item.clicked = true;
-
-            item.id.style.width="25%";
+            item.id.style.zIndex=2;
         });
 
         
         item.id.addEventListener('mousemove', e => {
             let position = e.clientX - (item.id.clientWidth / 2);
             if(item.clicked) {
-                item.id.style.position="absolute";
                 item.id.style.left=`${position}px`;
             }
 
@@ -83,8 +90,7 @@ window.onload = () => {
 
         item.id.addEventListener('mouseup', e => {
             item.clicked = false;
-            item.id.style.position='unset';
-            item.id.style.width="";
+            item.id.style.zIndex=1;
         });
 
         item.rgb.addEventListener('mousedown', e => {
@@ -122,7 +128,7 @@ window.onload = () => {
         let r = currentColor[0];
         let g = currentColor[1];
         let b = currentColor[2];
-        item.id.style = `background: rgb(${r}, ${g}, ${b})`;
+        item.id.style.background = `rgb(${r}, ${g}, ${b})`;
 
         item.hex.value = fullColorHex(r,g,b);
         item.rgb.value = `rgb(${r}, ${g}, ${b})`;
