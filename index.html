@@ -35,6 +35,7 @@
         opacity: 0.25;
         cursor: pointer;
         width: 40%;
+        fill:#fff;
       }
       .margin2 {
         margin-top: 80px;
@@ -60,12 +61,27 @@
         -ms-user-select: none;
         user-select: none;
       }
+      .active {
+        opacity: 1 !important;
+      }
+      @media only screen and (max-width:800px) {
+        .margin1 > svg {
+          width: 36px;
+          height:48px;
+        }
+        p > input[type="text"] {
+          font-size:10px;
+        }
+        p {
+          font-size: 20px !important;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="main noselect">
       <div id="container1" class="sub pos0">
-        <p id="lock1" class="margin1">LOCK</p>
+        <p id="lock1" class="margin1"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="72" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M4 13H3v-1h1v1zm8-6v7c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h1V4c0-2.2 1.8-4 4-4s4 1.8 4 4v2h1c.55 0 1 .45 1 1zM3.8 6h4.41V4c0-1.22-.98-2.2-2.2-2.2-1.22 0-2.2.98-2.2 2.2v2H3.8zM11 7H2v7h9V7zM4 8H3v1h1V8zm0 2H3v1h1v-1z"/></svg></p>
         <p id="button1" class="margin2">PRESS "G"</p>
         <p class="bottom"></p>
         <p>
@@ -76,7 +92,7 @@
         </p>
       </div>
       <div id="container2" class="sub pos1">
-        <p id="lock2" class="margin1">LOCK</p>
+        <p id="lock2" class="margin1"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="72" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M4 13H3v-1h1v1zm8-6v7c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h1V4c0-2.2 1.8-4 4-4s4 1.8 4 4v2h1c.55 0 1 .45 1 1zM3.8 6h4.41V4c0-1.22-.98-2.2-2.2-2.2-1.22 0-2.2.98-2.2 2.2v2H3.8zM11 7H2v7h9V7zM4 8H3v1h1V8zm0 2H3v1h1v-1z"/></svg></p>
         <p id="button2" class="margin2">PRESS "G"</p>
         <p class="bottom"></p>
         <p>
@@ -87,7 +103,7 @@
         </p>
       </div>
       <div id="container3" class="sub pos2">
-        <p id="lock3" class="margin1">LOCK</p>
+        <p id="lock3" class="margin1"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="72" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M4 13H3v-1h1v1zm8-6v7c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h1V4c0-2.2 1.8-4 4-4s4 1.8 4 4v2h1c.55 0 1 .45 1 1zM3.8 6h4.41V4c0-1.22-.98-2.2-2.2-2.2-1.22 0-2.2.98-2.2 2.2v2H3.8zM11 7H2v7h9V7zM4 8H3v1h1V8zm0 2H3v1h1v-1z"/></svg></p>
         <p id="button3" class="margin2">PRESS "G"</p>
         <p class="bottom"></p>
         <p>
@@ -98,7 +114,7 @@
         </p>
       </div>
       <div id="container4" class="sub pos3">
-        <p id="lock4" class="margin1">LOCK</p>
+        <p id="lock4" class="margin1"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="72" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M4 13H3v-1h1v1zm8-6v7c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h1V4c0-2.2 1.8-4 4-4s4 1.8 4 4v2h1c.55 0 1 .45 1 1zM3.8 6h4.41V4c0-1.22-.98-2.2-2.2-2.2-1.22 0-2.2.98-2.2 2.2v2H3.8zM11 7H2v7h9V7zM4 8H3v1h1V8zm0 2H3v1h1v-1z"/></svg></p>
         <p id="button4" class="margin2">PRESS "G"</p>
         <p class="bottom"></p>
         <p>
@@ -109,7 +125,7 @@
         </p>
       </div>
       <div id="container5" class="sub pos4">
-        <p id="lock5" class="margin1">LOCK</p>
+        <p id="lock5" class="margin1"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="72" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M4 13H3v-1h1v1zm8-6v7c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h1V4c0-2.2 1.8-4 4-4s4 1.8 4 4v2h1c.55 0 1 .45 1 1zM3.8 6h4.41V4c0-1.22-.98-2.2-2.2-2.2-1.22 0-2.2.98-2.2 2.2v2H3.8zM11 7H2v7h9V7zM4 8H3v1h1V8zm0 2H3v1h1v-1z"/></svg></p>
         <p id="button5" class="margin2">PRESS "G"</p>
         <p class="bottom"></p>
         <p>

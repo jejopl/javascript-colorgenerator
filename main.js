@@ -74,12 +74,10 @@ allColumns.forEach(item => {
   item.lock.addEventListener("mousedown", () => {
     if (item.save) {
       item.save = false;
-      item.lock.innerHTML = "LOCK";
-      item.lock.style = "";
+      item.lock.classList.remove("active");
     } else if (!item.save) {
       item.save = true;
-      item.lock.innerHTML = "LOCKED";
-      item.lock.style = "opacity: 1 !important;";
+      item.lock.classList.add("active");
     }
   });
 
