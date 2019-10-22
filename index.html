@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Color Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="./main.js"></script>
     <style>
       body {
         margin: 0;
+        overflow: hidden;
       }
       .main {
         width: 100vw;
@@ -19,7 +19,7 @@
         height: 100%;
         width: 20%;
         display: flex;
-        position:absolute;
+        position: absolute;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -53,22 +53,20 @@
         cursor: pointer;
       }
       .noselect {
-        -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-        -khtml-user-select: none; /* Konqueror HTML */
-        -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Opera and Firefox */
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
     </style>
   </head>
   <body>
     <div class="main noselect">
-      <div id="container1" class="sub">
-        <p id="move1">MOVE</p>
+      <div id="container1" class="sub pos0">
         <p id="lock1" class="margin1">LOCK</p>
-        <p id="button1" class="margin2">PRESS SPACE</p>
+        <p id="button1" class="margin2">PRESS "G"</p>
         <p class="bottom"></p>
         <p>
           <input class="colors" type="text" id="hex1" readonly="readonly" />
@@ -77,10 +75,9 @@
           <input class="colors" type="text" id="rgb1" readonly="readonly" />
         </p>
       </div>
-      <div id="container2" class="sub">
-        <p id="move2">MOVE</p>
+      <div id="container2" class="sub pos1">
         <p id="lock2" class="margin1">LOCK</p>
-        <p id="button2" class="margin2">PRESS SPACE</p>
+        <p id="button2" class="margin2">PRESS "G"</p>
         <p class="bottom"></p>
         <p>
           <input class="colors" type="text" id="hex2" readonly="readonly" />
@@ -89,10 +86,9 @@
           <input class="colors" type="text" id="rgb2" readonly="readonly" />
         </p>
       </div>
-      <div id="container3" class="sub">
-        <p id="move3">MOVE</p>
+      <div id="container3" class="sub pos2">
         <p id="lock3" class="margin1">LOCK</p>
-        <p id="button3" class="margin2">PRESS SPACE</p>
+        <p id="button3" class="margin2">PRESS "G"</p>
         <p class="bottom"></p>
         <p>
           <input class="colors" type="text" id="hex3" readonly="readonly" />
@@ -101,10 +97,9 @@
           <input class="colors" type="text" id="rgb3" readonly="readonly" />
         </p>
       </div>
-      <div id="container4" class="sub">
-        <p id="move4">MOVE</p>
+      <div id="container4" class="sub pos3">
         <p id="lock4" class="margin1">LOCK</p>
-        <p id="button4" class="margin2">PRESS SPACE</p>
+        <p id="button4" class="margin2">PRESS "G"</p>
         <p class="bottom"></p>
         <p>
           <input class="colors" type="text" id="hex4" readonly="readonly" />
@@ -113,10 +108,9 @@
           <input class="colors" type="text" id="rgb4" readonly="readonly" />
         </p>
       </div>
-      <div id="container5" class="sub">
-        <p id="move5">MOVE</p>
+      <div id="container5" class="sub pos4">
         <p id="lock5" class="margin1">LOCK</p>
-        <p id="button5" class="margin2">PRESS SPACE</p>
+        <p id="button5" class="margin2">PRESS "G"</p>
         <p class="bottom"></p>
         <p>
           <input class="colors" type="text" id="hex5" readonly="readonly" />
@@ -126,5 +120,6 @@
         </p>
       </div>
     </div>
+    <script src="./main.js"></script>
   </body>
 </html>
