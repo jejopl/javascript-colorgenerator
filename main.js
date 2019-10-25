@@ -26,11 +26,37 @@ function fullColorHex(r, g, b) {
   return ("#" + red + green + blue).toUpperCase();
 }
 
+function getColors() {
+  let colors = [];
+  allColumns.forEach(item => {
+    let background = item.id.style.background;
+    let rgb = background.substring(background.lastIndexOf(":") + 1, background.lastIndexOf(";"));
+    colors.push(rgb);
+  });
+  return colors;
+}
+function getParams() {
+  for (i = 1; i < 6; i++) {
+    if (params.get(`c${i}`) == undefined || (params.get(`c${i}`).split(',').length != 3)) return false;
+    let check = params.get(`c${i}`).split(',')
+    for(y = 0; y < 3; y++) {
+      if(check[y] > 255 || check[y] < 0 || check[y] == undefined || !Number.isInteger(parseInt(check[y]))) return false;
+    }
+  }
+  return true;
+}
+
+function generateUrl() {
+  let url = ""
+  return url;
+}
+
 const one = { id: getId("container1"), lock: getId("lock1"), button: getId("button1"), hex: getId("hex1"), rgb: getId("rgb1"), save: false, clicked: false };
 const two = { id: getId("container2"), lock: getId("lock2"), button: getId("button2"), hex: getId("hex2"), rgb: getId("rgb2"), save: false, clicked: false };
 const three = { id: getId("container3"), lock: getId("lock3"), button: getId("button3"), hex: getId("hex3"), rgb: getId("rgb3"), save: false, clicked: false };
 const four = { id: getId("container4"), lock: getId("lock4"), button: getId("button4"), hex: getId("hex4"), rgb: getId("rgb4"), save: false, clicked: false };
 const five = { id: getId("container5"), lock: getId("lock5"), button: getId("button5"), hex: getId("hex5"), rgb: getId("rgb5"), save: false, clicked: false };
+const params = new URLSearchParams(location.search);
 
 const allColumns = [one, two, three, four, five];
 
@@ -144,14 +170,22 @@ allColumns.forEach(item => {
   });
 });
 
-allColumns.forEach(item => {
-  if (item.save) return;
-  let currentColor = randomColor();
-  let r = currentColor[0];
-  let g = currentColor[1];
-  let b = currentColor[2];
-  item.id.style.background = `rgb(${r}, ${g}, ${b})`;
-
-  item.hex.value = fullColorHex(r, g, b);
-  item.rgb.value = `rgb(${r}, ${g}, ${b})`;
-});
+if (getParams()) {
+  for (i = 0; i < 5; i++) {
+    let rgb = params.get(`c${i+1}`).split(",");
+    allColumns[i].id.style.background = `rgb(${params.get(`c${i+1}`)})`;
+    allColumns[i].rgb.value = `rgb(${params.get(`c${i+1}`)})`;
+    allColumns[i].hex.value = fullColorHex(rgb[0], rgb[1], rgb[2]);
+  }
+} else {
+  allColumns.forEach(item => {
+    if (item.save) return;
+    let currentColor = randomColor();
+    let r = currentColor[0];
+    let g = currentColor[1];
+    let b = currentColor[2];
+    item.id.style.background = `rgb(${r}, ${g}, ${b})`;
+    item.hex.value = fullColorHex(r, g, b);
+    item.rgb.value = `rgb(${r}, ${g}, ${b})`;
+  });
+}
